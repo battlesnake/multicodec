@@ -20,5 +20,5 @@ $(out): $(bin)/%: $(src)/%
 
 $(bin)/index.js:
 	@mkdir -p $(@D)
-	printf "%s\n" '#!/usr/bin/env nodejs' 'require("source-map-support").install();' 'require("babel-polyfill");' 'require("./main").default.test();' > $@
+	printf "%s\n" 'require("source-map-support").install();' 'require("babel-polyfill");' 'module.exports = require("./main").default;' > $@
 	chmod +x $@

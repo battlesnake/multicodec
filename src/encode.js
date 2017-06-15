@@ -23,7 +23,7 @@ const encode = async (buf, spec = default_spec) => {
 	const real_spec = compile_spec(layers_used);
 	if (Buffer.isBuffer(buf)) {
 		const specbuf = Buffer.from(`${real_spec}:`, 'ascii');
-		return Buffer.concat(specbuf, buf).toString('ascii');
+		return Buffer.concat([specbuf, buf]);
 	} else if (typeof buf === 'string') {
 		return [real_spec, buf].join(':');
 	} else {
