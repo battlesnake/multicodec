@@ -4,8 +4,8 @@
   "description": "Facade permitting encodings which use multiple layers, and which tags data with the codec stack in order to allow the decoder to decode any message encoded with this module (without being told what the original encoder settings were)",
   "main": "bin/main.js",
   "scripts": {
-    "postinstall": "make",
-    "test": "make && ./node_modules/.bin/mocha"
+    "postinstall": "make build",
+    "test": "make test"
   },
   "repository": {
     "type": "git",
@@ -14,13 +14,30 @@
   "author": "Mark K Cowan",
   "license": "UNLICENSED",
   "dependencies": {
-    "babel-cli": "^6.24.1",
     "babel-polyfill": "^6.23.0",
-    "babel-preset-latest": "^6.24.1",
     "source-map-support": "^0.4.14"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-istanbul": "^4.1.4",
+    "babel-preset-env": "^1.6.0",
     "chai": "^4.0.2",
-    "mocha": "^3.4.2"
+    "chai-as-promised": "^7.1.1",
+    "istanbul": "^1.0.0-alpha.2",
+    "mocha": "^3.4.2",
+    "source-map-support": "^0.4.15"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ],
+    "sourceMaps": "inline",
+    "env": {
+      "test": {
+        "plugins": [
+          "istanbul"
+        ]
+      }
+    }
   }
 }

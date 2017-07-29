@@ -1,24 +1,20 @@
-src = src
-bin = bin
+srcdir = src
+outdir = bin
 
-in = $(wildcard $(src)/*.js $(src)/*/*.js)
-out = $(in:$(src)/%=$(bin)/%)
+export PATH := $(CURDIR)/node_modules/.bin:$(PATH)
 
 .PHONY: all
 all: build
 
 .PHONY: clean
 clean:
-	rm -rf -- $(bin)
+	rm -rf -- $(outdir) coverage
 
 .PHONY: build
-build: $(out) $(bin)/index.js
+build:
+	babel --out-dir $(outdir) $(srcdir)
 
-$(out): $(bin)/%: $(src)/%
-	@mkdir -p $(@D)
-	babel --source-maps inline --presets latest -o $@ $^
-
-$(bin)/index.js:
-	@mkdir -p $(@D)
-	printf "%s\n" 'require("source-map-support").install();' 'require("babel-polyfill");' 'module.exports = require("./main").default;' > $@
-	chmod +x $@
+.PHONY: test
+test: build
+	rm -rf coverage
+	DEBUG=y BABEL_ENV=test istanbul cover _mocha -- --require babel-polyfill --use_strict $(outdir)/test
