@@ -5,7 +5,7 @@ apply plugin: 'eclipse'
 apply from: 'common-build.gradle'
 
 group = 'com.kuckian'
-version = '0.1'
+version = '0.2'
 
 description = """"""
 

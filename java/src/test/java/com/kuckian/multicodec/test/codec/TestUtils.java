@@ -13,9 +13,9 @@ import com.kuckian.multicodec.util.MulticodecTransform;
 
 public abstract class TestUtils {
 
-	private static final String TEST_STRING = "Hän katsoi maan reunalta tähteä putoavaa";
-	private static final int TEST_RANDOM_BYTE_COUNT = 1 << 20;
-	private static final int TEST_NON_RANDOM_BYTE_COUNT = 1 << 20;
+	public static final String TEST_STRING = "Hän katsoi maan reunalta tähteä putoavaa";
+	public static final int TEST_RANDOM_BYTE_COUNT = 1 << 20;
+	public static final int TEST_NON_RANDOM_BYTE_COUNT = 1 << 20;
 
 	public static boolean showInfo = true;
 
