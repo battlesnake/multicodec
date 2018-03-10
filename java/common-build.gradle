@@ -1,0 +1,35 @@
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+repositories {
+	mavenCentral()
+	flatDir {
+		dirs jarjarbinks
+	}
+}
+
+if (!project.hasProperty('jarjarbinks')) {
+	throw new GradleException('jarjarbinks is not set up properly')
+}
+
+task export(type: Copy) {
+	from jar
+	into jarjarbinks
+	eachFile {
+		if (it.relativePath.getFile(destinationDir).exists()) {
+			throw new GradleException('CONFLICT:\n\nTarget ' + it +
+				' already exists!\n\nHave you remembered to ' +
+				'bump the version number in build.gradle?\n\n' +
+				'If you *really* want to overwrite this, ' +
+				'then use "gradle exportAlways", but if you ' +
+				'think that you need to do this then you\'re ' +
+				'probably\n\t(a) wrong and\n\t(b) a moron')
+		}
+	}
+}
+
+task exportAlways(type: Copy) {
+	from jar
+	into jarjarbinks
+}

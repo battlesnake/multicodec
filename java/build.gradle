@@ -1,0 +1,29 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'eclipse'
+
+apply from: 'common-build.gradle'
+
+group = 'com.kuckian'
+version = '0.1'
+
+description = """"""
+
+sourceCompatibility = 8
+targetCompatibility = 8
+
+dependencies {
+
+	compile group: 'commons-codec', name: 'commons-codec', version: '1.11'
+	compile group: 'commons-io', name: 'commons-io', version: '2.5'
+
+	testCompile 'junit:junit:4.12'
+}
+
+sourceSets {
+	main {
+		java {
+			srcDir "src/main/java"
+		}
+	}
+}
