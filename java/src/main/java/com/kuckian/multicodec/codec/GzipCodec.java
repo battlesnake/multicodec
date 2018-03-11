@@ -22,20 +22,13 @@ public class GzipCodec extends Codec {
 
 	}
 
-	public static class DecoderOptions {
-
-		/* For compatibility with encode options */
-		public transient Mode mode;
-
-	}
-
 	public GzipCodec() {
 		super("gzip");
 	}
 
 	@Override
 	public Class<?> getDecoderOptionsClass() {
-		return DecoderOptions.class;
+		return null;
 	}
 
 	@Override

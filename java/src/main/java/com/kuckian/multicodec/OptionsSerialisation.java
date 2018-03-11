@@ -98,9 +98,18 @@ public abstract class OptionsSerialisation {
 	}
 
 	public static Class<?> getOptionsType(String name, Direction direction) {
+		/*
+		 * If decoder options type is NULL, default to encoder options (which may be
+		 * ignored by decoder, this is just to allow the encoding string to pass
+		 * validation/deserialisation when decoding laterf)
+		 */
 		switch (direction) {
 		case DECODE:
-			return CodecRegistry.getCodec(name).getDecoderOptionsClass();
+			Class<?> type = CodecRegistry.getCodec(name).getDecoderOptionsClass();
+			if (type == null) {
+				type = getOptionsType(name, Direction.ENCODE);
+			}
+			return type;
 		case ENCODE:
 			return CodecRegistry.getCodec(name).getEncoderOptionsClass();
 		default:

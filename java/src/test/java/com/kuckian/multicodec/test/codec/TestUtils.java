@@ -21,8 +21,8 @@ public abstract class TestUtils {
 
 	public static void printInfo(String scheme, String test, byte[] plain, byte[] coded) {
 		if (showInfo) {
-			System.err.println(String.format(" * %s / %s :: %d -> %d (%.1f)", scheme, test,
-					plain.length, coded.length, coded.length * 100.0f / plain.length));
+			System.err.println(String.format(" * %s / %s :: %d -> %d (%.1f)", scheme, test, plain.length, coded.length,
+					coded.length * 100.0f / plain.length));
 		}
 	}
 
