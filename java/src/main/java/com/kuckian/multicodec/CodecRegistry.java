@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.kuckian.multicodec.codec.Base64Codec;
+import com.kuckian.multicodec.codec.DeflateCodec;
 import com.kuckian.multicodec.codec.GzipCodec;
 import com.kuckian.multicodec.codec.IdentityCodec;
 
@@ -41,6 +42,7 @@ public class CodecRegistry {
 	static {
 		register(new IdentityCodec());
 		register(new Base64Codec());
+		register(new DeflateCodec());
 		register(new GzipCodec());
 	}
 
