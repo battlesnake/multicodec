@@ -1,6 +1,6 @@
 package com.kuckian.multicodec;
 
-public class CodecNotRegisteredError extends Error {
+public class CodecNotRegisteredError extends MulticodecError {
 
 	private static final long serialVersionUID = 4345895933528884582L;
 

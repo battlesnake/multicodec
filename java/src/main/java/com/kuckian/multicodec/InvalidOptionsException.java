@@ -1,6 +1,6 @@
 package com.kuckian.multicodec;
 
-public class InvalidOptionsException extends Exception {
+public class InvalidOptionsException extends MulticodecException {
 
 	private static final long serialVersionUID = 5798503637521088445L;
 

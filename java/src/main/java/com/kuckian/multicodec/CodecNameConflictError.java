@@ -1,6 +1,6 @@
 package com.kuckian.multicodec;
 
-public class CodecNameConflictError extends Error {
+public class CodecNameConflictError extends MulticodecError {
 
 	private static final long serialVersionUID = -1677170865081735904L;
 

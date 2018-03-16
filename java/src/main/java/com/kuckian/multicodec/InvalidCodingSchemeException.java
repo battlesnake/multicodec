@@ -1,6 +1,6 @@
 package com.kuckian.multicodec;
 
-public class InvalidCodingSchemeException extends Exception {
+public class InvalidCodingSchemeException extends MulticodecException {
 
 	private static final long serialVersionUID = -2396810199765080089L;
 
