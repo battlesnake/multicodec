@@ -1,11 +1,1 @@
-node_modules/
-bin/
-coverage/
-.*.sw?
-
-/java/.classpath
-/java/.project
-/java/.settings
-/java/build
-/java/.gradle
-.gradle
+/.gradle

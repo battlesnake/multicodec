@@ -1,11 +1,11 @@
 {
   "name": "multicodec",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Facade permitting encodings which use multiple layers, and which tags data with the codec stack in order to allow the decoder to decode any message encoded with this module (without being told what the original encoder settings were)",
   "main": "js/bin/main.js",
   "scripts": {
-    "postinstall": "make -C js build",
-    "test": "make -C js test"
+    "postinstall": "cd js && babel --out-dir bin src",
+    "test": "cd js && rm -rf coverage && DEBUG=y BABEL_ENV=test istanbul cover _mocha -- --require babel-polyfill --use_strict bin/test"
   },
   "repository": {
     "type": "git",
