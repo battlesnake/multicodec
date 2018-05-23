@@ -5,7 +5,8 @@ let _zlib_wrapper = null;
 const lazy_zlib = () => {
 	if (!_zlib_wrapper) {
 		/* To fool browserify */
-		const zlib = require(['z', 'l', 'i', 'b'].join(''));
+		const is_browser = typeof window !== 'undefined' || process.env.BROWSER_MODE;
+		const zlib = is_browser ? require('browserify-zlib') : require(['z', 'l', 'i', 'b'].join(''));
 		const wrap = func => (...args) => new Promise((res, rej) => {
 			zlib[func](...args, (err, out) => {
 				/* istanbul ignore if */

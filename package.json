@@ -14,11 +14,12 @@
   "author": "Mark K Cowan",
   "license": "GPL-2.0",
   "dependencies": {
-    "babel-polyfill": "^6.23.0",
-    "source-map-support": "^0.4.15",
     "babel-cli": "^6.24.1",
     "babel-plugin-istanbul": "^4.1.4",
-    "babel-preset-env": "^1.6.0"
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "browserify-zlib": "^0.2.0",
+    "source-map-support": "^0.4.15"
   },
   "devDependencies": {
     "chai": "^4.0.2",
